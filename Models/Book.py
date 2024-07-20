@@ -51,7 +51,8 @@ class Book:
 
     @staticmethod
     def check_year(year) -> int:
-        if year <= -2000 or year >= datetime.year: # Отрицательные значения до нашей эры
+        # Отрицательные значения до нашей эры
+        if year <= -2000 or year >= datetime.year:
             raise Exception("Невозможный год издания")
         return year
 
