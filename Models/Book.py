@@ -55,6 +55,21 @@ class Book:
             raise Exception("Невозможный год издания")
         return year
 
+    def get_author(self):
+        return self.author
+
+    def get_year(self):
+        return self.year
+
+    def get_title(self):
+        return self.title
+
+    def get_status(self):
+        return self.status
+
+    def get_date_last_given(self):
+        return self.date_last_given
+
     def update_title(self, title: str):
         """
         Изменяет значение title на переданное
@@ -100,4 +115,3 @@ class Book:
             "date_add": self.date_add,
             "date_last_given": self.date_last_given,
         }
-    
