@@ -32,7 +32,7 @@ class Book:
                  ):
         self.id = self.generate_id()
         self.title = title
-        self.year = year
+        self.year = self.check_year(year)
         self.status = status
         self.date_add = date_add
         self.date_last_given = date_last_given
@@ -49,6 +49,12 @@ class Book:
 
         return sha256(string.encode()).hexdigest()
 
+    @staticmethod
+    def check_year(year) -> int:
+        if year <= -2000 or year >= datetime.year: # Отрицательные значения до нашей эры
+            raise Exception("Невозможный год издания")
+        return year
+
     def update_title(self, title: str):
         """
         Изменяет значение title на переданное
@@ -56,12 +62,12 @@ class Book:
         """
         self.title = title
 
-    def update_year(self, year: str):
+    def update_year(self, year: int):
         """
         Изменяет значение year на переданное
         :param year:
         """
-        self.year = year
+        self.year = self.check_year(year)
 
     def update_author(self, author="Автора нет"):
         """
@@ -94,3 +100,4 @@ class Book:
             "date_add": self.date_add,
             "date_last_given": self.date_last_given,
         }
+    
