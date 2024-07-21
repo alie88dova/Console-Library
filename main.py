@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+from ConsoleGUI.consoleGUI import Console
+
+
 def main():
-    print("Начало работы 20:47 20-07-2024")
+    meni = Console()
+    meni.add_wrapper()
 
 
 if __name__ == '__main__':
